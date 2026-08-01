@@ -7,12 +7,23 @@
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/build/windows-msvc-x64",
       "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" }
+    },
+    {
+      "name": "windows-msvc-arm64",
+      "displayName": "Windows ARM64 (MSVC cross-compile)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/windows-msvc-arm64",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" }
     }
   ],
   "buildPresets": [
     {
       "name": "windows-msvc-x64",
       "configurePreset": "windows-msvc-x64"
+    },
+    {
+      "name": "windows-msvc-arm64",
+      "configurePreset": "windows-msvc-arm64"
     }
   ],
   "testPresets": [

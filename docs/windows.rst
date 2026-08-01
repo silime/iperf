@@ -26,8 +26,9 @@ Prerequisites
 -------------
 
 Install Visual Studio 2026 with the **Desktop development with C++** workload,
-including CMake and a Windows SDK.  Both the x64 Native Tools command prompt
-and Visual Studio's **Open a local folder** workflow are supported.
+including CMake, a Windows SDK, and the MSVC ARM64 build tools when targeting
+ARM64.  Both the x64 Native Tools command prompt and Visual Studio's **Open a
+local folder** workflow are supported.
 
 Build and test
 --------------
@@ -46,6 +47,17 @@ direct build is::
   cmake -S . -B build/windows-ninja -G Ninja -DCMAKE_BUILD_TYPE=Release
   cmake --build build/windows-ninja
   ctest --test-dir build/windows-ninja --output-on-failure
+
+To cross-compile for Windows ARM64, open an x64-to-ARM64 MSVC developer prompt
+(``VsDevCmd.bat -arch=arm64 -host_arch=x64``) and run::
+
+  cmake --preset windows-msvc-arm64
+  cmake --build --preset windows-msvc-arm64
+
+The ARM64 executable is generated under
+``build/windows-msvc-arm64/iperf3.exe``.  Run its tests on an ARM64 Windows
+host; an x64 build host can verify the output architecture with
+``dumpbin /headers``.
 
 Development plan and verification matrix
 ----------------------------------------
