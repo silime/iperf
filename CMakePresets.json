@@ -6,14 +6,20 @@
       "displayName": "Windows x64 (MSVC)",
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/build/windows-msvc-x64",
-      "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" }
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreaded"
+      }
     },
     {
       "name": "windows-msvc-arm64",
       "displayName": "Windows ARM64 (MSVC cross-compile)",
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/build/windows-msvc-arm64",
-      "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" }
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreaded"
+      }
     }
   ],
   "buildPresets": [

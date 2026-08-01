@@ -5,7 +5,9 @@ The native Windows port uses the Microsoft C compiler, CMake, the Universal
 CRT, and WinSock 2.  It does not require Cygwin, MSYS2, or a POSIX runtime.
 MSVC was selected because it is the platform ABI compiler, ships with the
 Windows SDK, integrates with Visual Studio's CMake support, and produces a
-binary with no third-party runtime dependency.
+binary with no third-party runtime dependency.  The supplied presets link the
+MSVC and Universal C runtimes statically so that ``iperf3.exe`` does not
+require a separately installed Visual C++ Redistributable.
 
 Supported functionality
 -----------------------
