@@ -227,9 +227,14 @@ cpu_util(double pcpu[3])
     systemdiff = ((rtemp.ru_stime.tv_sec * 1000000.0 + rtemp.ru_stime.tv_usec) -
                   (rlast.ru_stime.tv_sec * 1000000.0 + rlast.ru_stime.tv_usec));
 
-    pcpu[0] = (((ctemp - clast) * 1000000.0 / CLOCKS_PER_SEC) / timediff) * 100;
     pcpu[1] = (userdiff / timediff) * 100;
     pcpu[2] = (systemdiff / timediff) * 100;
+#ifdef _WIN32
+    /* MSVC clock() measures wall time, unlike the POSIX process CPU clock. */
+    pcpu[0] = pcpu[1] + pcpu[2];
+#else
+    pcpu[0] = (((ctemp - clast) * 1000000.0 / CLOCKS_PER_SEC) / timediff) * 100;
+#endif
 }
 
 const char *
