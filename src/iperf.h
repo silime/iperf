@@ -70,7 +70,9 @@
 #ifdef HAVE_STDATOMIC_H
 #include <stdatomic.h>
 #else
+#if !defined(_MSC_VER)
 #warning "No <stdatomic.h> available."
+#endif
 typedef uint64_t atomic_uint_fast64_t;
 #endif // HAVE_STDATOMIC_H
 

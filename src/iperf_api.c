@@ -5013,10 +5013,12 @@ iperf_new_stream(struct iperf_test *test, int s, int sender)
         i_errno = IECREATESTREAM;
         goto err_exit_free_result;
     }
+#ifndef _WIN32
     if (unlink(template) < 0) {
         i_errno = IECREATESTREAM;
         goto err_exit_close_buffer;
     }
+#endif
     size = test->settings->blksize;
     if (test->protocol->id == Pudp && test->settings->gso && (size < test->settings->gso_bf_size))
         size = test->settings->gso_bf_size;

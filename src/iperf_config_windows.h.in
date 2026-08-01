@@ -1,0 +1,26 @@
+#pragma once
+#define PACKAGE "iperf"
+#define PACKAGE_NAME "iperf"
+#define PACKAGE_STRING "iperf @PROJECT_VERSION@"
+#define PACKAGE_TARNAME "iperf"
+#define PACKAGE_VERSION "@PROJECT_VERSION@"
+#define PACKAGE_URL "https://software.es.net/iperf/"
+#define PACKAGE_BUGREPORT "https://github.com/esnet/iperf/issues"
+#define VERSION "@PROJECT_VERSION@"
+#define HAVE_CLOCK_GETTIME 1
+#define HAVE_NANOSLEEP 1
+#define HAVE_DONT_FRAGMENT 1
+#define HAVE_IP_DONTFRAGMENT 1
+#define HAVE_PTHREAD 1
+#define HAVE_SETPROCESSAFFINITYMASK 1
+#define HAVE_CPU_AFFINITY 1
+#define HAVE_DAEMON 1
+#define HAVE_SOCKET_SHUTDOWN_SHUT_WR 1
+#define HAVE_STDINT_H 1
+#define HAVE_INTTYPES_H 1
+#define HAVE_STDIO_H 1
+#define HAVE_STDLIB_H 1
+#define HAVE_STRING_H 1
+#define HAVE_SYS_TYPES_H 1
+#define HAVE_SYS_STAT_H 1
+#define STDC_HEADERS 1

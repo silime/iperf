@@ -57,6 +57,12 @@
  */
 int readentropy(void *out, size_t outsize)
 {
+#ifdef _WIN32
+    if (outsize && BCryptGenRandom(NULL, (PUCHAR)out, (ULONG)outsize,
+                                  BCRYPT_USE_SYSTEM_PREFERRED_RNG) != 0)
+        iperf_errexit(NULL, "error - BCryptGenRandom failed\n");
+    return 0;
+#else
     FILE *frandom;
     static const char rndfile[] = "/dev/urandom";
     int is_eof = 0;
@@ -78,6 +84,7 @@ int readentropy(void *out, size_t outsize)
     }
     fclose(frandom);
     return 0;
+#endif
 }
 
 

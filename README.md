@@ -56,6 +56,9 @@ To check out the most recent code, clone the git repository at:
 Building iperf3
 ---------------
 
+Native Windows builds with MSVC and CMake are documented in
+``docs/windows.rst``.  They do not require Cygwin or MSYS2.
+
 ### Prerequisites: ###
 
 None.
